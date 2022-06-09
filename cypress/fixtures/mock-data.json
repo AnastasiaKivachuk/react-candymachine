@@ -1,0 +1,9 @@
+{
+  "itemsAvailable": 10000,
+  "itemsRedeemed": 7000,
+  "goLiveDate": "Tue Aug 31 2021 18:00:00 GMT+0300 (Moscow Standard Time)",
+  "wallet": "testWalletId",
+  "authority": "testAuthorityId",
+  "sellerFeeBasisPoints": 500,
+  "symbol": "TEST-SYMBOL"
+}
