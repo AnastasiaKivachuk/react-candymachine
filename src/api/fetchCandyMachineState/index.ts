@@ -1,4 +1,4 @@
-import { web3, Wallet, Provider, Program, BN } from '@project-serum/anchor'
+import { web3, Wallet, Provider, Program } from '@project-serum/anchor'
 
 import { CandyMachineState } from './types'
 import { CANDY_MACHINE_PROGRAM } from './constants'

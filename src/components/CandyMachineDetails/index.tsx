@@ -12,12 +12,12 @@ import Typography from "@mui/material/Typography";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 
-const StyledCard = styled(Card)<{ is_hidden: string }>(({is_hidden}) => ({
-    minWidth: 426,
-    margin: theme.spacing(2),
-    padding: theme.spacing(2),
-    position: 'relative'
-}))
+const StyledCard = styled(Card)`
+  min-width: 426px;
+  margin: ${theme.spacing(2)};
+  padding: ${theme.spacing(2)};
+  position: relative
+`
 
 const StyledCardContent = styled.div`
   display: flex;
@@ -50,7 +50,7 @@ const StyledCardEmptyContent = styled(CardContent)`
 `
 
 
-const CandyMachineDetails = ({cluster = '', data = null}: CandyMachineDetailsProps) => {
+const CandyMachineDetails = ({cluster, data}: CandyMachineDetailsProps) => {
     const details = useMemo(
         () =>
             data
@@ -101,19 +101,30 @@ const CandyMachineDetails = ({cluster = '', data = null}: CandyMachineDetailsPro
     )
 
     return (
-        <StyledCard is_hidden={''} className='details'>
-            {data?<>
-                <StyledCardHeader title={<Typography variant="h6" className='title' >Details</Typography>}></StyledCardHeader>
-            {details.map(({title, value}) => (
-                <StyledCardContent key={title}>
-                    <StyledCardContentTitle>{title}</StyledCardContentTitle>
-                    <StyledCardContentDetails>{value}</StyledCardContentDetails>
-                </StyledCardContent>
-            ))}</> : <StyledCardEmptyContent>
-                No data
-            </StyledCardEmptyContent>}
+        <StyledCard className='details'>
+            {data ?
+                <>
+                    <StyledCardHeader
+                        title={<Typography variant="h6" className='title'>Details</Typography>}>
+                    </StyledCardHeader>
+                    {details.map(({title, value}) => (
+                        <StyledCardContent key={title}>
+                            <StyledCardContentTitle>{title}</StyledCardContentTitle>
+                            <StyledCardContentDetails>{value}</StyledCardContentDetails>
+                        </StyledCardContent>
+                    ))}
+                </>
+                :
+                <StyledCardEmptyContent>
+                    No data
+                </StyledCardEmptyContent>
+            }
         </StyledCard>
     )
+}
+
+CandyMachineDetails.defaultProps = {
+    cluster: '', data: null
 }
 
 export default memo(CandyMachineDetails)

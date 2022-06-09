@@ -3,7 +3,7 @@ import moment from 'moment'
 import { MAINNET, TESTNET, DEVNET } from '../configuration/availableNetworkAddresses'
 
 export const formatDate = (date: Date): string => {
-  const momentDate = moment(date)
+  const momentDate = moment(date);
   return `${momentDate.fromNow()} - ${momentDate.toLocaleString()}`
 }
 
