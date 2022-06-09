@@ -34,8 +34,6 @@ describe('MAIN PAGE', () => {
         cy.get('input').should('have.length', 2)
         cy.get('input').last().type(`9vwYtcJsH1MskNaixcjgNBnvBDkTBhyg25umod1rgMQL{enter}`, {delay: 300})
         cy.get('input').last().should('have.value', '9vwYtcJsH1MskNaixcjgNBnvBDkTBhyg25umod1rgMQL')
-        cy.wait(3000);
-        cy.get('.title').should('have.text', 'Details')
     });
 
 })
